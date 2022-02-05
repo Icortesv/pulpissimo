@@ -1,0 +1,28 @@
+diff --git a/Bender.yml b/Bender.yml
+index 11343d0..0904595 100644
+--- a/Bender.yml
++++ b/Bender.yml
+@@ -13,8 +13,9 @@ package:
+     - "Luca Valente <luca.valente2@unibo.it>"
+ 
+ dependencies:
+-  pulp_soc: { git: "https://github.com/pulp-platform/pulp_soc.git", version: 3.0.0 }
++  pulp_soc: { git: "https://github.com/pulp-soc-training/pulp_soc.git", version: 3.0.0 }
+   tbtools: { git: "https://github.com/pulp-platform/tbtools.git", version: 0.2.1 }
++  dummy_vip: { git : "https://github.com/pulp-soc-training/dummy_vip.git" , rev: "d855dd24a7c0ad2aefc6c9037a11d8539b416b62" }
+ 
+ workspace:
+   # package_links:
+diff --git a/rtl/tb/tb_pulp.sv b/rtl/tb/tb_pulp.sv
+index 390c8d8..b64c3b9 100644
+--- a/rtl/tb/tb_pulp.sv
++++ b/rtl/tb/tb_pulp.sv
+@@ -600,6 +600,8 @@ module tb_pulp;
+         $timeformat(-9, 0, "ns", 9);
+     end: timing_format
+ 
++   dummy_top i_dummy_top();
++   
+    // testbench driver process
+    initial
+       begin

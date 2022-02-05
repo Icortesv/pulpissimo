@@ -1,0 +1,37 @@
+diff --git a/Bender.yml b/Bender.yml
+index 0904595..fdaeec5 100644
+--- a/Bender.yml
++++ b/Bender.yml
+@@ -13,7 +13,7 @@ package:
+     - "Luca Valente <luca.valente2@unibo.it>"
+ 
+ dependencies:
+-  pulp_soc: { git: "https://github.com/pulp-soc-training/pulp_soc.git", version: 3.0.0 }
++  pulp_soc: { git: "https://github.com/pulp-soc-training/pulp_soc.git", rev: "48322ce867de58b26e3aae56f24a2c778288000b" }
+   tbtools: { git: "https://github.com/pulp-platform/tbtools.git", version: 0.2.1 }
+   dummy_vip: { git : "https://github.com/pulp-soc-training/dummy_vip.git" , rev: "d855dd24a7c0ad2aefc6c9037a11d8539b416b62" }
+ 
+diff --git a/rtl/includes/periph_bus_defines.sv b/rtl/includes/periph_bus_defines.sv
+index 329d403..3181737 100644
+--- a/rtl/includes/periph_bus_defines.sv
++++ b/rtl/includes/periph_bus_defines.sv
+@@ -15,7 +15,7 @@
+  */
+ 
+ // SOC PERIPHERALS APB BUS PARAMETRES
+-`define NB_MASTER  11
++`define NB_MASTER  12
+ 
+ // MASTER PORT TO FLL
+ `define FLL_START_ADDR           32'h1A10_0000
+@@ -56,8 +56,8 @@
+ `define DEBUG_START_ADDR         32'h1A11_0000
+ `define DEBUG_END_ADDR           32'h1A11_FFFF
+ 
+-`define DUMMY_START_ADDR         32'h1A12_0000
+-`define DUMMY_END_ADDR           32'h1A12_0008
++`define WIDE_ALU_START_ADDR      32'h1A12_0000
++`define WIDE_ALU_END_ADDR        32'h1A12_0FFF
+ 
+ 
+ `define APB_ASSIGN_SLAVE(lhs, rhs)     \

@@ -1,0 +1,35 @@
+diff --git a/rtl/includes/pulp_soc_defines.sv b/rtl/includes/pulp_soc_defines.sv
+index 279aebb..027b1c2 100644
+--- a/rtl/includes/pulp_soc_defines.sv
++++ b/rtl/includes/pulp_soc_defines.sv
+@@ -29,7 +29,7 @@
+ 
+ // To use The L2 Multibank Feature, please decomment this define
+ `define USE_L2_MULTIBANK
+-`define NB_L2_CHANNELS 4
++`define NB_L2_CHANNELS 8
+ 
+ // JTAG
+ `define DMI_JTAG_IDCODE 32'h249511C3
+diff --git a/rtl/includes/soc_mem_map.svh b/rtl/includes/soc_mem_map.svh
+index 21bb29e..be98984 100644
+--- a/rtl/includes/soc_mem_map.svh
++++ b/rtl/includes/soc_mem_map.svh
+@@ -19,8 +19,11 @@
+ // specific language governing permissions and limitations under the License.
+ //-----------------------------------------------------------------------------
+ 
++`define SOC_MEM_MAP_PRIVATE_BANK2_START_ADDR 32'h1B00_0000
++`define SOC_MEM_MAP_PRIVATE_BANK2_END_ADDR   32'h1B00_8000
++
+ `define SOC_MEM_MAP_TCDM_START_ADDR          32'h1C01_0000
+-`define SOC_MEM_MAP_TCDM_END_ADDR            32'h1C09_0000
++`define SOC_MEM_MAP_TCDM_END_ADDR            32'h1C21_0000
+ 
+ `define SOC_MEM_MAP_PRIVATE_BANK0_START_ADDR 32'h1C00_0000
+ `define SOC_MEM_MAP_PRIVATE_BANK0_END_ADDR   32'h1C00_8000
+@@ -37,4 +40,3 @@
+ `define SOC_MEM_MAP_PERIPHERALS_START_ADDR   32'h1A10_0000
+ `define SOC_MEM_MAP_PERIPHERALS_END_ADDR     32'h1A40_0000
+ 
+-
